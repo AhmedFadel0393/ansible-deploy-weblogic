@@ -1,7 +1,8 @@
 ################################################################################
 # ==> tasks for fmw-managed-server Role. Creates a managed server in an existing
 # ==> Fussion Middleware domain on a weblogic server. Supports 12.2.1.3 version
-# ==> author: Stavros Kalapothas
+# ==> ValU DevOps
+# ==> Ahmed Fadel
 # ##############################################################################
 
 # ==> Create managed server on Domain

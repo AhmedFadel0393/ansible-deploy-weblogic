@@ -2,7 +2,7 @@
 oracle_user: 'oracle'
 oracle_group: 'oinstall'
 # Software and configuration main directory
-oracle_base: '/oracle/fmw12.1.3'
+oracle_base: '/oracle/oracleBase'
 
 # JDK installer and target folder
 jdk_installation_archive: 'jdk-8u172-linux-x64.tar.gz'
@@ -24,8 +24,8 @@ domain_name: 'ValU_domain'
 
 # Nodemanager and server settings
 node_manager_listen_port: '5556'
-node_manager_listen_address: '{{ localhost }}'
-admin_server_hostname: '{{ localhost }}'
+node_manager_listen_address: '{{ server_hostname }}'
+admin_server_hostname: '{{ server_hostname }}'
 admin_server_port: '7001'
 managed_server_name: 'ValU_server_1'
 managed_server_port: '7010'
