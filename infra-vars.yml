@@ -17,15 +17,15 @@ dbserver_port: '1521'
 #dbserver_service: 'pdborcl.private'
 #dbserver_service: 'oradb3.private'
 dbserver_service: 'db.oradb3.private'
-repository_prefix: 'wls12c2'
+repository_prefix: 'ValU_repo'
 
 # Domain Name
 domain_name: 'ValU_domain'
 
 # Nodemanager and server settings
 node_manager_listen_port: '5556'
-node_manager_listen_address: '{{ localhost1 }}'
-admin_server_hostname: '{{ localhost1 }}'
+node_manager_listen_address: '{{ localhost }}'
+admin_server_hostname: '{{ localhost }}'
 admin_server_port: '7001'
 managed_server_name: 'ValU_server_1'
 managed_server_port: '7010'
