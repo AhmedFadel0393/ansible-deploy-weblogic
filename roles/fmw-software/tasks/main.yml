@@ -16,6 +16,5 @@
   template: src=oraInst.loc dest={{ mw_installer_folder }} owner={{ oracle_user }} group={{ oracle_group }}
 - name: execute Weblogic installer
   command: "{{ jdk_folder }}/bin/java -Xms1024m -Xmx1024m -jar {{ mw_installer_folder }}/{{ mw_installer }} -silent -responseFile {{ mw_installer_folder }}/silent-weblogic.txt -invPtrLoc {{ mw_installer_folder }}/oraInst.loc"
-  #sudo_user: '{{ oracle_user }}'
   become: true
   become_user: '{{ oracle_user }}'
