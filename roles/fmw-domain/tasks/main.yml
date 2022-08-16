@@ -1,7 +1,6 @@
 ################################################################################
 # ==> Main Tasks for fmw-domain Role
 # ==> Creates a Domain with Fussion Middleware Infra software
-# ==> Compatible with 12.2.1.3
 # ==> ValU DevOps
 # ==> Ahmed Fadel
 ################################################################################
@@ -32,14 +31,14 @@
   become: yes
   become_user: '{{ oracle_user }}'
   #command: 'cp {{ domain_home }}/security/DemoIdentity.jks {{ nodemanager_home }}/security/DemoIdentity.jks'
-  #command: 'cp /oracle/fmw12.1.3/product/Oracle_Home/wlserver/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/DemoIdentity.jks {{ domain_home }}/security/'
-  #command: 'for i in {{ nodemanager_home }}/security/ {{ domain_home }}/security/ ; do cp {{ middleware_home }}/wlserver/server/lib/DemoIdentity.jks $i; done'
-  #template: src={{ middleware_home }}/wlserver/server/lib/DemoIdentity.jks dest={{ nodemanager_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
-  #template: src={{ middleware_home }}/wlserver/server/lib/DemoIdentity.jks dest={{ domain_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
+  #command: 'cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/DemoIdentity.jks {{ domain_home }}/security/'
+  #command: 'for i in {{ nodemanager_home }}/security/ {{ domain_home }}/security/ ; do cp {{ weblogic_home }}/server/lib/DemoIdentity.jks $i; done'
+  #template: src={{ weblogic_home }}/server/lib/DemoIdentity.jks dest={{ nodemanager_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
+  #template: src={{ weblogic_home }}/server/lib/DemoIdentity.jks dest={{ domain_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
   command: '{{ item }}'
   with_items:
-    - cp /oracle/fmw12.1.3/product/Oracle_Home/wlserver/server/lib/DemoIdentity.jks {{ domain_home }}/security/
-    - cp /oracle/fmw12.1.3/product/Oracle_Home/wlserver/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/  
+    - cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ domain_home }}/security/
+    - cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/
   
   #sudo_user: '{{ oracle_user }}'
 - name: Copy Nodemanager Properties file

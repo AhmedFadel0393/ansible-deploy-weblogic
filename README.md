@@ -5,7 +5,7 @@ Weblogic Ansible Playbook
 
 An Ansible Playbook (weblogic-fmw-domain.yml) to install and configure a WebLogic Server 12c with 
 Oracle Fusion Middleware software for hosting Oracle Fusion Middleware (for example ADF) applications in Redhat Linux 7 (RHEL/CentOS/Oracle Linux) system.
-This playbook is for version 12.2.1.3 of WebLogic and Fusion Middleware Infrastructure software.
+
 
 Requirements for running the playbook:
 - Configure your environment variables in infra-vars.yml. 
@@ -13,7 +13,7 @@ Requirements for running the playbook:
 - A running Oracle Database for hosting the repositories is required and sys user password for generates the repositories.
 - A running RHEL 7 system with minimal installation with network configured. (IP address, hostname etc).
 - Download the latest Java 8 jdk and put the file in roles/linux-jdk/files and configure infra-vars.yml with that file name.
-- Download the 12.2.1.3 Oracle Fusion Middleware installer from Oracle support and put it in roles/fmw-software/files
+- Download the Oracle Fusion Middleware installer from Oracle support and put it in roles/fmw-software/files
 
 The playbook includes the following Ansible Roles:
 - linux-wls: Configures the linux system with required packages, kernel settings etc.
