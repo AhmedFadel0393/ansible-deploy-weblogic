@@ -1,4 +1,4 @@
-[dev]
-dev-8 ansible_host=172.26.134.8 ansible_port==22
-
-#ansible_ssh_host=172.26.134.8 ansible_ssh_port=22
+# Profitto
+[ProfittoTest]
+172.26.134.7
+172.26.134.8

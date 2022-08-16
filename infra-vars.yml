@@ -34,7 +34,7 @@ managed_server_2_name: 'ValU_server_2'
 managed_server_2_port: '7011'
 
 # Server Hostname
-server_hostname: '{{ localhost }}'  ///
+server_hostname: '{{ ansible_hostname }}'  ///
 
 
 # database settings for repository
