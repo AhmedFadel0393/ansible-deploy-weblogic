@@ -6,14 +6,14 @@
 ################################################################################
 
 # ==> Create Repository in Database
-- name: password response file for repository creation
-  template: src=passwords.txt dest={{ mw_installer_folder }} owner={{ oracle_user }} group={{ oracle_group }}
-- name: copy create repository script
-  template: src=create_repo.sh dest={{ mw_installer_folder }} owner={{ oracle_user }} group={{ oracle_group }} mode=0755
-- name: execute create repository script
-  become: true
-  become_user: '{{ oracle_user }}'
-  shell: "{{ mw_installer_folder }}/create_repo.sh"
+#- name: password response file for repository creation
+#  template: src=passwords.txt dest={{ mw_installer_folder }} owner={{ oracle_user }} group={{ oracle_group }}
+#- name: copy create repository script
+#  template: src=create_repo.sh dest={{ mw_installer_folder }} owner={{ oracle_user }} group={{ oracle_group }} mode=0755
+#- name: execute create repository script
+#  become: true
+#  become_user: '{{ oracle_user }}'
+#  shell: "{{ mw_installer_folder }}/create_repo.sh"
     
 # ==> Create new domain
 - name: copy create domain python script

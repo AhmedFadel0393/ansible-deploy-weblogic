@@ -2,7 +2,7 @@
 - name: Configure RHEL 7 with WebLogic 12c domain
   hosts: all
   become: true
-  become_user: root
+  become_user: '{{ ssh_user }}'
   vars_files:
     # User defined variables for infrastructure
     - infra-vars.yml
