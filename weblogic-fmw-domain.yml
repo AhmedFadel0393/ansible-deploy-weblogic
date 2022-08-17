@@ -5,7 +5,6 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
-  become: yes
   hosts: all
   roles:
     - role: linux-wls
