@@ -6,7 +6,6 @@
     - wls-vars.yml
     - secrets.yml
   become: yes
-  become_user: '{{ ssh_user }}'
   hosts: all
   roles:
     - role: linux-wls
