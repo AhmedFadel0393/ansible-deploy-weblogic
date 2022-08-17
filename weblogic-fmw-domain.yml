@@ -18,6 +18,8 @@
     - wls-vars.yml
     - secrets.yml
   hosts: all
+  become: true
+  become_user: '{{ oracle_user }}'
   roles:
     - role: linux-jdk
   tags:
@@ -30,6 +32,8 @@
     - wls-vars.yml
     - secrets.yml
   hosts: all
+  become: true
+  become_user: '{{ oracle_user }}'
   roles:
     - role: fmw-software
   tags:
@@ -42,6 +46,8 @@
     - wls-vars.yml
     - secrets.yml
   hosts: all
+  become: true
+  become_user: '{{ oracle_user }}'
   roles:
     - role: fmw-domain
   tags:
@@ -54,6 +60,8 @@
     - wls-vars.yml
     - secrets.yml
   hosts: all
+  become: true
+  become_user: '{{ oracle_user }}'
   roles:
     - role: fmw-managed-server
   tags:
