@@ -5,7 +5,7 @@
 
 # Profitto ssh user & sudo use
 [ProfittoTest:vars]
-ansible_user='{{ ssh_user }}'  # ssh login user
-ansible_become=yes  # use sudo 
+ansible_user='{{ ssh_user }}'
+ansible_become=yes
 ansible_become_method=sudo 
-ansible_become_pass='{{ user_sudo_pass }}'  # ssh login password
+ansible_become_pass='{{ user_sudo_pass }}'
