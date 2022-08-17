@@ -1,4 +1,4 @@
-Weblogic Ansible Playbook  12.2.1.3.0
+Weblogic Ansible Playbook  12.2.1.3.0 [Two Managed Servers]
 ======================================
 # ValU DevOps
 # Ahmed Fadel
