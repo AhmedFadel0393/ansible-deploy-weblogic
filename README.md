@@ -76,4 +76,4 @@ ansible-playbook weblogic-fmw-domain.yml -u {user} -i hosts -l {hostgroup} --tag
 04. domain= ValU_domain
 05. nodemanager         ==> name= username= weblogic , port= 5556
 06. admin_server_name= AdminServer , port= 7001
-07. Two managed servers     ==> managed_server_1_name= ValU_server_1 , port= 7010
+07. One managed servers     ==> managed_server_name= ValU_server , port= 7010

@@ -28,13 +28,10 @@ admin_server_hostname: '{{ server_hostname }}'
 admin_server_name: 'AdminServer'
 admin_server_port: '7001'
 
-# Managed server [1]
-managed_server_1_name: 'ValU_server_1'
+# Managed server
+managed_server_1_name: 'ValU_server'
 managed_server_1_port: '7010'
 
-# Managed server [2]
-managed_server_2_name: 'ValU_server_2'
-managed_server_2_port: '7011'
 
 # Server Hostname
 server_hostname: '{{ inventory_hostname }}'
