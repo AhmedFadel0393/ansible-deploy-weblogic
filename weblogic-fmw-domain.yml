@@ -17,8 +17,6 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
-  become: true
-  become_user: '{{ ssh_user }}'
   hosts: all
   roles:
     - role: linux-jdk
@@ -31,8 +29,6 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
-  become: true
-  become_user: '{{ ssh_user }}'
   hosts: all
   roles:
     - role: fmw-software
@@ -45,8 +41,6 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
-  become: true
-  become_user: '{{ ssh_user }}'
   hosts: all
   roles:
     - role: fmw-domain
@@ -59,8 +53,6 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
-  become: true
-  become_user: '{{ ssh_user }}'
   hosts: all
   roles:
     - role: fmw-managed-server
