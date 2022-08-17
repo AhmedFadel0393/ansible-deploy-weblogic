@@ -5,7 +5,7 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
-  become: true
+  become: yes
   become_user: '{{ ssh_user }}'
   hosts: all
   roles:
