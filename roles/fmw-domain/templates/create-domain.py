@@ -41,12 +41,13 @@ print 'READ DOMAIN';
 readDomain(domain_configuration_home);
 
 print 'ADD TEMPLATES';
-#addTemplate(em_template);
+addTemplate(em_template);
 #addTemplate(jrf_template);
 #addTemplate(coherence_template);
-#setOption('AppDir', domain_application_home);
+setOption('AppDir', domain_application_home);
 
-#connect('{{ weblogic_admin }}','{{ weblogic_admin_pass }}','t3://192.168.56.102:7001')
+#connect('{{ weblogic_admin }}','{{ weblogic_admin_pass }}','t3://' + '{{ admin_server_hostname }}' + ':' + '{{ admin_server_port }}')
+
 #jdbcsystemresources = cmo.getJDBCSystemResources();
 #for jdbcsystemresource in jdbcsystemresources:
     #cd ('/JDBCSystemResource/' + jdbcsystemresource.getName() + '/JdbcResource/' + jdbcsystemresource.getName() + '/JDBCConnectionPoolParams/NO_NAME_0');

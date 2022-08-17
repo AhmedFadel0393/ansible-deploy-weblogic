@@ -1,31 +1,47 @@
+# Target Machine user Ansible is connecting to
+ssh_user: EFGuser
+
 # Oracle os user and group
 oracle_user: 'oracle'
 oracle_group: 'oinstall'
-# Software and configuration main directory
-oracle_base: '/oracle/fmw12.1.3'
 
 # JDK installer and target folder
 jdk_installation_archive: 'jdk-8u172-linux-x64.tar.gz'
-jdk_folder: '{{ oracle_base }}/jdk1.8.0_172'
 
 # fmw installer
 mw_installer: 'fmw_12.2.1.3.0_infrastructure.jar'
 
-# database settings for repository
-dbserver_name: '192.168.56.102'
-dbserver_port: '1521'
-#dbserver_service: 'pdborcl.private'
-#dbserver_service: 'oradb3.private'
-dbserver_service: 'db.oradb3.private'
-repository_prefix: 'wls12c2'
+# Weblogic
+weblogic_admin: 'weblogic'
+weblogic_version: '12.2.1.3.0'
 
 # Domain Name
-domain_name: 'adf_domain'
+domain_name: 'ValU_domain'
 
-# Nodemanager and server settings
+# Nodemanager
+node_manager_listen_address: '{{ server_hostname }}'
+nodemanager_username: 'weblogic'
 node_manager_listen_port: '5556'
-node_manager_listen_address: 'localhost'
-admin_server_hostname: 'localhost'
+
+# Admin Server
+admin_server_hostname: '{{ server_hostname }}'
+admin_server_name: 'AdminServer'
 admin_server_port: '7001'
-managed_server_name: 'adfsrv1'
-managed_server_port: '7003'
+
+# Managed server [1]
+managed_server_1_name: 'ValU_server_1'
+managed_server_1_port: '7010'
+
+# Managed server [2]
+managed_server_2_name: 'ValU_server_2'
+managed_server_2_port: '7011'
+
+# Server Hostname
+server_hostname: '{{ inventory_hostname }}'
+
+
+#### database settings for repository
+#dbserver_name: '192.168.56.102'
+#dbserver_port: '1521'
+#dbserver_service: 'db.oradb3.private'
+#repository_prefix: 'ValU_repo'

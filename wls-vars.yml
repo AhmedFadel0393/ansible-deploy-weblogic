@@ -1,14 +1,20 @@
-# Common paths and names
+# Common paths
+
+#JAVA
+jdk_folder: '{{ oracle_base }}/jdk'
+
+# Oracle
+oracle_base: '/oracle/oracleBase'
 middleware_home: '{{ oracle_base }}/product/Oracle_Home'
 middleware_common_home: '{{ middleware_home }}/oracle_common'
-domains_home: '{{ oracle_base }}/config/Domains'
+weblogic_home: '{{ middleware_home }}/wlserver'
+
 applications_home: '{{ oracle_base }}/config/applications'
 mw_installer_folder: '{{ oracle_base }}/installer'
-domain_home: '{{ domains_home }}/{{ domain_name }}'
+
+# Machine
 nodemanager_home: '{{ oracle_base }}/config/nodemanagers/{{ domain_name }}'
-weblogic_home: '{{ middleware_home }}/wlserver'
-nodemanager_username: 'weblogic'
-weblogic_admin: 'weblogic'
-admin_server_name: 'AdminServer'
-#server_hostname: '{{ ansible_fqdn }}'
-server_hostname: 'localhost'
+
+# Domains
+domains_home: '{{ oracle_base }}/config/Domains'
+domain_home: '{{ domains_home }}/{{ domain_name }}'

@@ -1,16 +1,65 @@
 ---
-- name: Configure RHEL 7 with WebLogic 12c domain
-  hosts: all
-  become: yes
-  become_user: root
+- name: Prepare Linux server with needed packages
   vars_files:
     # User defined variables for infrastructure
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+  become: true
+  become_user: '{{ ssh_user }}'
   roles:
     - role: linux-wls
+  tags:
+    - os
+
+- name: Extract and Install Java
+  vars_files:
+    # User defined variables for infrastructure
+    - infra-vars.yml
+    - wls-vars.yml
+    - secrets.yml
+  become: true
+  become_user: '{{ ssh_user }}'
+  roles:
     - role: linux-jdk
+  tags:
+    - jdk
+
+- name: Install Weblogic
+  vars_files:
+    # User defined variables for infrastructure
+    - infra-vars.yml
+    - wls-vars.yml
+    - secrets.yml
+  become: true
+  become_user: '{{ ssh_user }}'
+  roles:
     - role: fmw-software
+  tags:
+    - sw
+
+- name: Create DB repo & Create Domain & Start Machine
+  vars_files:
+    # User defined variables for infrastructure
+    - infra-vars.yml
+    - wls-vars.yml
+    - secrets.yml
+  become: true
+  become_user: '{{ ssh_user }}'
+  roles:
     - role: fmw-domain
+  tags:
+    - dom
+
+- name: Create managed servers
+  vars_files:
+    # User defined variables for infrastructure
+    - infra-vars.yml
+    - wls-vars.yml
+    - secrets.yml
+  become: true
+  become_user: '{{ ssh_user }}'
+  roles:
     - role: fmw-managed-server
+  tags:
+    - ms

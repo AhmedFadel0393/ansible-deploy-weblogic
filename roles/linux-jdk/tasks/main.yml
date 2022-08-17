@@ -1,6 +1,7 @@
 ################################################################################
 # ==> tasks for linux-jdk Role that installs JDK in a RHEL 7 system
-# ==> author: Stavros Kalapothas
+# ==> ValU DevOps
+# ==> Ahmed Fadel
 ################################################################################
 
 # ==> Install JDK
