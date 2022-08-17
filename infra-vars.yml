@@ -1,4 +1,4 @@
-# Machine user Anisble is connecting to
+# Target Machine user Ansible is connecting to
 ssh_user: EFGuser
 
 # Oracle os user and group
