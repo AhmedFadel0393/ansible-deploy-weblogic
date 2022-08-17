@@ -1,7 +1,7 @@
 # Profitto
 [ProfittoTest]
-#172.26.134.7
-172.26.134.8
+172.26.134.7
+#172.26.134.8
 
 # Profitto ssh user & sudo use
 [ProfittoTest:vars]
