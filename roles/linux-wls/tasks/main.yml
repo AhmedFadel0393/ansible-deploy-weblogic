@@ -7,8 +7,7 @@
 
 # ==> Configure Linux
 - name: Install required libraries
-  yum: name={{ item }} state=present
-  with_items: "{{ packages_list }}"
+  yum: name="{{ packages_list }}" state=present
 - name: Disable SELinux
   selinux: state=disabled
 - name: Disable Firewall Deamon (firewalld)
