@@ -1,4 +1,18 @@
 ---
+
+- name: Copy JDK & weblogic-fmw packages
+  vars_files:
+    # User defined variables for infrastructure
+    - infra-vars.yml
+    - wls-vars.yml
+    - secrets.yml
+    - new-input.yml
+  hosts: all
+  roles:
+    - role: linux-wls
+  tags:
+    - os
+
 - name: Prepare Linux server with needed packages
   vars_files:
     # User defined variables for infrastructure
