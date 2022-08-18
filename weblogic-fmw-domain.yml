@@ -5,6 +5,7 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+    - new-input.yml
   hosts: all
   roles:
     - role: linux-wls

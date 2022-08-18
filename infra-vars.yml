@@ -1,5 +1,4 @@
-# Target Machine user Ansible is connecting to
-ssh_user: EFGuser
+
 
 # Oracle os user and group
 oracle_user: 'oracle'
@@ -35,10 +34,3 @@ managed_server_1_port: '7010'
 
 # Server Hostname
 server_hostname: '{{ inventory_hostname }}'
-
-
-#### database settings for repository
-#dbserver_name: '192.168.56.102'
-#dbserver_port: '1521'
-#dbserver_service: 'db.oradb3.private'
-#repository_prefix: 'ValU_repo'

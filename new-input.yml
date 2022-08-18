@@ -1,0 +1,8 @@
+# Target Machine user Ansible is connecting to
+ssh_user: EFGuser
+
+#### database settings for repository
+#dbserver_name: '192.168.56.102'
+#dbserver_port: '1521'
+#dbserver_service: 'db.oradb3.private'
+#repository_prefix: 'ValU_repo'
