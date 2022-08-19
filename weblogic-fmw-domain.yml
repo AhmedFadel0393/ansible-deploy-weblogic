@@ -1,17 +1,5 @@
 ---
 
-- name: Testing connection before starting
-  vars_files:
-    - inventory/infra-vars.yml
-    - inventory/wls-vars.yml
-    - inventory/secrets.yml
-    - new-input.yml
-  hosts: all
-  roles:
-    - role: connection-check
-  tags:
-    - connection-check
-
 - name: Prepare Linux server with needed packages
   vars_files:
     - inventory/infra-vars.yml

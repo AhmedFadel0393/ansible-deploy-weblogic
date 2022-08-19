@@ -1,8 +1,19 @@
-# Check connection with all servers is
-ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l all --tags connection-check
+# Check connections
 
-# Check connection with target servers is
-ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags connection-check
+# Check connection with all servers
+ansible-playbook target-check.yml -i hosts.yml -l all
+
+# Check connection with Test servers
+ansible-playbook target-check.yml -i hosts.yml -l EnvironmentTest
+
+# Check connection with target servers
+ansible-playbook target-check.yml -i hosts.yml -l ProfittoTest
+
+###########################################################################################
+###########################################################################################
+###########################################################################################
+
+# Running Playbook
 
 # Prepare Linux server with needed packages & oracle user & create needed dirs
 ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags prep-os
