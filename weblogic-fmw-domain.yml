@@ -1,16 +1,47 @@
 ---
+
 - name: Prepare Linux server with needed packages
+  vars_files:
+    # User defined variables for infrastructure
+    - inventory/infra-vars.yml
+    - inventory/wls-vars.yml
+    - inventory/secrets.yml
+    - new-input.yml
+  hosts: all
+  roles:
+    - role: linux-wls
+  tags:
+    - prep-os
+
+- name: Copy JDK
   vars_files:
     # User defined variables for infrastructure
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+    - new-input.yml
+  hosts: all
   become: true
-  become_user: '{{ ssh_user }}'
+  become_user: '{{ oracle_user }}'
   roles:
-    - role: linux-wls
+    - role: cp-jdk-package
   tags:
-    - os
+    - cp-jdk
+
+- name: Copy weblogic-fmw packages
+  vars_files:
+    # User defined variables for infrastructure
+    - infra-vars.yml
+    - wls-vars.yml
+    - secrets.yml
+    - new-input.yml
+  hosts: all
+  become: true
+  become_user: '{{ oracle_user }}'
+  roles:
+    - role: cp-fmw-package
+  tags:
+    - cp-fmw
 
 - name: Extract and Install Java
   vars_files:
@@ -18,12 +49,13 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+  hosts: all
   become: true
-  become_user: '{{ ssh_user }}'
+  become_user: '{{ oracle_user }}'
   roles:
     - role: linux-jdk
   tags:
-    - jdk
+    - install-jdk
 
 - name: Install Weblogic
   vars_files:
@@ -31,12 +63,13 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+  hosts: all
   become: true
-  become_user: '{{ ssh_user }}'
+  become_user: '{{ oracle_user }}'
   roles:
     - role: fmw-software
   tags:
-    - sw
+    - install-fmw
 
 - name: Create DB repo & Create Domain & Start Machine
   vars_files:
@@ -44,12 +77,13 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+  hosts: all
   become: true
-  become_user: '{{ ssh_user }}'
+  become_user: '{{ oracle_user }}'
   roles:
     - role: fmw-domain
   tags:
-    - dom
+    - start-domain
 
 - name: Create managed servers
   vars_files:
@@ -57,9 +91,10 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+  hosts: all
   become: true
-  become_user: '{{ ssh_user }}'
+  become_user: '{{ oracle_user }}'
   roles:
     - role: fmw-managed-server
   tags:
-    - ms
+    - fmw-server

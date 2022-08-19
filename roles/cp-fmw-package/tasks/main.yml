@@ -1,0 +1,10 @@
+################################################################################
+# ==> tasks for Role that copies Weblogic-fmw package
+# ==> ValU DevOps
+# ==> Ahmed Fadel
+################################################################################
+
+# ==> Copy fmw
+
+- name: Copy Middleware Installer
+  copy: src={{ mw_installer }} dest={{ mw_installer_folder }} owner={{ oracle_user }} group={{ oracle_group }}

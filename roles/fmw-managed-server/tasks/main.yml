@@ -14,15 +14,12 @@
   become_user: '{{ oracle_user }}'
     
 # ==> Start managed servers
-- name: Create security folder for managed server [1]
-  file: state=directory path={{ domains_home }}/{{ domain_name }}/servers/{{ managed_server_1_name }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
-- name: Create boot properties file for managed server [1]
-  template: src=boot.properties dest={{ domain_home }}/servers/{{ managed_server_1_name }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
+- name: Create security folder for managed server
+  file: state=directory path={{ domains_home }}/{{ domain_name }}/servers/{{ managed_server_name }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
+- name: Create boot properties file for managed server
+  template: src=boot.properties dest={{ domain_home }}/servers/{{ managed_server_name }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
 
-- name: Create security folder for managed server [2]
-  file: state=directory path={{ domains_home }}/{{ domain_name }}/servers/{{ managed_server_2_name }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
-- name: Create boot properties file for managed server [2]
-  template: src=boot.properties dest={{ domain_home }}/servers/{{ managed_server_2_name }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
+
 
 - name: Copy Start Managed Server Script
   template: src=start-managed-server.py dest={{ mw_installer_folder }} owner={{ oracle_user }} group={{ oracle_group }}
@@ -32,8 +29,5 @@
   become: true
   become_user: '{{ oracle_user }}'
 
-- name: Wait for Managed Server [1] to startup
-  wait_for: host={{ server_hostname }} port={{ managed_server_1_port }} delay=5 timeout=90
-
-- name: Wait for Managed Server [2] to startup
-  wait_for: host={{ server_hostname }} port={{ managed_server_2_port }} delay=5 timeout=90
+- name: Wait for Managed Server to startup
+  wait_for: host={{ server_hostname }} port={{ managed_server_port }} delay=5 timeout=90

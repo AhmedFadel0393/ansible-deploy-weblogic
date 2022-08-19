@@ -1,0 +1,12 @@
+################################################################################
+# ==> tasks for Role that copies JDK package
+# ==> ValU DevOps
+# ==> Ahmed Fadel
+################################################################################
+
+# ==> Copy JDK
+
+- name: Copy jdk archive to host
+  copy: src={{ jdk_installation_archive }} dest={{ mw_installer_folder }}  owner={{ oracle_user }} group={{ oracle_group }}
+  args:
+    force: no

@@ -1,4 +1,4 @@
-Weblogic Ansible Playbook  12.2.1.3.0 [Two Managed Servers]
+Weblogic Ansible Playbook  12.2.1.3.0 [One Managed Servers]
 ======================================
 # ValU DevOps
 # Ahmed Fadel
@@ -12,13 +12,28 @@ Oracle Fusion Middleware software for hosting Oracle Fusion Middleware applicati
 
 ============================================================================================================================================
 
+# Make sure the targeted linux machines are added to " .ssh " file 
+
+    ==> Before running playbook the targeted machines user should be added to the ".ssh" file
+    ==> Using ansible user run command:    " ssh-copy-id user@xxx.xxx.xxx.xxx " 
+    ==> Users pass are stored in file "/home/ansible/.ssh/id_rsa.pub"
+    ==> Now try to access the targeted machines with command " ssh user@xxx.xxx.xxx.xxx " and make sure you access with no need to password
+
+============================================================================================================================================
+
+# Clone this branch
+
+git clone -b 12.2-1ms https://github.com/AhmedFadel0393/ansible-deploy-weblogic.git
+
+This specific branch is for installing JDK 1.8 & Weblogic 12.2.1.3.0
+
+============================================================================================================================================
+
 ## Requirments to be added and configured before starting
 
-1. Target Machine user Ansible is connecting to
-    ==> location: infra-vars.yml    ==> input at: [ssh_user:]
-    ==> Before running playbook the user should be added to the ".ssh" file
-    ==> Using ansible user run command:    $ ssh-copy-id user@xxx.xxx.xxx.xxx 
-    ==> Users pass are stored in file "/home/ansible/.ssh/id_rsa.pub"
+1. Target Machine user & password Ansible is using them to connect to the machines
+    ==> location: new-input.yml    ==> input at: [ssh_user:]
+    ==> location: secrets ==> input at: [user_sudo_pass:]
 
 2. Oracle user password 
     ==> location: secrets ==> input at: [oracle_os_user_pass:]  #I suggest don't change
@@ -38,7 +53,21 @@ Oracle Fusion Middleware software for hosting Oracle Fusion Middleware applicati
     ==> location: secrets ==> input at: [sysdba_passwd:]   #Request from DB team
 
 6. Target host group
-    ==> location: hosts     ==> input will be added to the ansible-playbook command line
+    ==> location: hosts         ==> create a new target group or choose one if it's already existing.
+                                    #Target hosts group will be add lated as an input to the ansible-playbook command line
+    ==> location: hosts         ==> create new target group under the one you will use and add to it these four lines without change.
+
+    Example:
+        # ProfittoTest
+        [ProfittoTest]
+        172.xx.xxx.x
+        172.xx.xxx.x
+        # ProfittoTest ssh user & sudo use
+        [ProfittoTest:vars]
+        ansible_user='{{ ssh_user }}'
+        ansible_become=yes
+        ansible_become_method=sudo 
+        ansible_become_pass='{{ user_sudo_pass }}'
 
 ============================================================================================================================================
 ## The playbook includes the following Ansible Roles:
@@ -57,13 +86,13 @@ Oracle Fusion Middleware software for hosting Oracle Fusion Middleware applicati
 
 2. Running ansible commands are stored in "running_commands.sh"
 
-3. Add local machine user in the command line after "-u"
+3. Add hosts file in which hosts are stored at after " -i "
 
-4. Make sure you add "host group" in the command line after "-l"
+4. Make sure you add "host group" in the command line after " -l "
 
-5. To run specific role, run ansible-playbook with related tag in the command line after "--tags"
+5. To run specific role, run ansible-playbook with related tag in the command line after " --tags "
 
-ansible-playbook weblogic-fmw-domain.yml -u {user} -i hosts -l {hostgroup} --tags {role-tag}
+ansible-playbook weblogic-fmw-domain.yml -i hosts -l {hostgroup} --tags {role-tag}
 
 
 
@@ -76,5 +105,4 @@ ansible-playbook weblogic-fmw-domain.yml -u {user} -i hosts -l {hostgroup} --tag
 04. domain= ValU_domain
 05. nodemanager         ==> name= username= weblogic , port= 5556
 06. admin_server_name= AdminServer , port= 7001
-07. Two managed servers     ==> managed_server_1_name= ValU_server_1 , port= 7010
-                            ==> managed_server_2_name= ValU_server_1 , port= 7011
+07. One managed servers     ==> managed_server_name= ValU_server , port= 7010
