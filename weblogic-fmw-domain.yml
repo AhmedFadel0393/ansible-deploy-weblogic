@@ -3,9 +3,9 @@
 - name: Prepare Linux server with needed packages
   vars_files:
     # User defined variables for infrastructure
-    - infra-vars.yml
-    - wls-vars.yml
-    - secrets.yml
+    - inventory/infra-vars.yml
+    - inventory/wls-vars.yml
+    - inventory/secrets.yml
     - new-input.yml
   hosts: all
   roles:
