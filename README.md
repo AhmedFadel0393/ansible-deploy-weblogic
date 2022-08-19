@@ -1,4 +1,4 @@
-Weblogic Ansible Playbook  12.2.1.3.0 [Two Managed Servers]
+Weblogic Ansible Playbook  12.2.1.3.0 [One Managed Servers]
 ======================================
 # ValU DevOps
 # Ahmed Fadel
@@ -32,7 +32,7 @@ This specific branch is for installing JDK 1.8 & Weblogic 12.2.1.3.0
 ## Requirments to be added and configured before starting
 
 1. Target Machine user & password Ansible is using them to connect to the machines
-    ==> location: infra-vars.yml    ==> input at: [ssh_user:]
+    ==> location: new-input.yml    ==> input at: [ssh_user:]
     ==> location: secrets ==> input at: [user_sudo_pass:]
 
 2. Oracle user password 

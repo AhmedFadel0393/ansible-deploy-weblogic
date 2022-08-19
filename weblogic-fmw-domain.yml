@@ -11,7 +11,7 @@
   roles:
     - role: linux-wls
   tags:
-    - os
+    - prep-os
 
 - name: Copy JDK
   vars_files:
@@ -55,7 +55,7 @@
   roles:
     - role: linux-jdk
   tags:
-    - jdk
+    - install-jdk
 
 - name: Install Weblogic
   vars_files:
@@ -69,7 +69,7 @@
   roles:
     - role: fmw-software
   tags:
-    - sw
+    - install-fmw
 
 - name: Create DB repo & Create Domain & Start Machine
   vars_files:
@@ -83,7 +83,7 @@
   roles:
     - role: fmw-domain
   tags:
-    - dom
+    - start-domain
 
 - name: Create managed servers
   vars_files:
@@ -97,4 +97,4 @@
   roles:
     - role: fmw-managed-server
   tags:
-    - ms
+    - fmw-server
