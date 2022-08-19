@@ -2,7 +2,6 @@
 
 - name: Prepare Linux server with needed packages
   vars_files:
-    # User defined variables for infrastructure
     - inventory/infra-vars.yml
     - inventory/wls-vars.yml
     - inventory/secrets.yml
@@ -15,7 +14,6 @@
 
 - name: Copy JDK
   vars_files:
-    # User defined variables for infrastructure
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
@@ -30,7 +28,6 @@
 
 - name: Copy weblogic-fmw packages
   vars_files:
-    # User defined variables for infrastructure
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
@@ -45,7 +42,6 @@
 
 - name: Extract and Install Java
   vars_files:
-    # User defined variables for infrastructure
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
@@ -59,7 +55,6 @@
 
 - name: Install Weblogic
   vars_files:
-    # User defined variables for infrastructure
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
@@ -73,7 +68,6 @@
 
 - name: Create DB repo & Create Domain & Start Machine
   vars_files:
-    # User defined variables for infrastructure
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
@@ -87,7 +81,6 @@
 
 - name: Create managed servers
   vars_files:
-    # User defined variables for infrastructure
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml

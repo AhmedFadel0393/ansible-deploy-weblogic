@@ -21,14 +21,6 @@ Oracle Fusion Middleware software for hosting Oracle Fusion Middleware applicati
 
 ============================================================================================================================================
 
-# Clone this branch
-
-git clone -b 12.2-1ms https://github.com/AhmedFadel0393/ansible-deploy-weblogic.git
-
-This specific branch is for installing JDK 1.8 & Weblogic 12.2.1.3.0
-
-============================================================================================================================================
-
 ## Requirments to be added and configured before starting
 
 1. Target Machine user & password Ansible is using them to connect to the machines
