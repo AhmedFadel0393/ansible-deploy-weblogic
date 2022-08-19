@@ -7,14 +7,6 @@
     - name: Here we are checking ansible_hostname
       debug:
         msg:
-         "hostname is {{ ansible_hostname }}
-          hostname is {{ inventory_hostname }}
-          hostname is {{ ansible_host }}"
-
-    - name: Here we are checking inventory_hostname
-      debug:
-        msg: "hostname is {{ inventory_hostname }}"
-
-    - name: Here we are checking ansible_host
-      debug:
-        msg: "hostname is {{ ansible_host }}"
+         "hostname is {{ ansible_hostname }} \
+          machine name is {{ inventory_hostname }} \
+          host IP is {{ ansible_host }}"
