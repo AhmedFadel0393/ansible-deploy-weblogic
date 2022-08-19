@@ -1,5 +1,14 @@
 ---
 
+- name: Testing connection before starting
+  vars_files:
+    - new-input.yml
+  hosts: all
+  roles:
+    - role: connection-check
+  tags:
+    - connection-check
+
 - name: Prepare Linux server with needed packages
   vars_files:
     - inventory/infra-vars.yml
@@ -77,7 +86,7 @@
   roles:
     - role: fmw-domain
   tags:
-    - start-domain
+    - fmw-domain
 
 - name: Create managed servers
   vars_files:

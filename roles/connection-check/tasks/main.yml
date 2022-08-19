@@ -1,0 +1,13 @@
+################################################################################
+# ==> tasks for Role to check connections with Target servers
+# ==> ValU DevOps
+# ==> Ahmed Fadel
+################################################################################
+
+
+- name: Here we are checking ansible connection and server credentials
+  debug:
+    msg:
+      - host IP ==> {{ ansible_host }}
+      - hostname ==> {{ ansible_hostname }}
+      - name in hosts ==> {{ inventory_hostname }}

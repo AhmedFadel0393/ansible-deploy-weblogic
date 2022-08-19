@@ -1,6 +1,8 @@
-# Check connection with target machines is
-ansible-playbook target-check.yml -i hosts.yml -l
-ansible-playbook target-check.yml -i hosts.yml -l ProfittoTest
+# Check connection with all servers is
+ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l all --tags connection-check
+
+# Check connection with target servers is
+ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags connection-check
 
 # Prepare Linux server with needed packages & oracle user & create needed dirs
 ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags prep-os
@@ -18,7 +20,7 @@ ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags ins
 ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags install-fmw
 
 # Create DB repo & Create Domain & Start Machine
-ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags start-domain
+ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags fmw-domain
 
 # Create managed servers
 ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags fmw-server
