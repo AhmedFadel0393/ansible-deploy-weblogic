@@ -7,6 +7,6 @@
     - name: Here we are checking ansible_hostname
       debug:
         msg:
-          - host IP: {{ ansible_host }}
-          - hostname: {{ ansible_hostname }}
-          - machine name in hosts file: {{ inventory_hostname }}
+          - host IP is {{ ansible_host }}
+          - hostname is {{ ansible_hostname }}
+          - machine name in hosts file is {{ inventory_hostname }}
