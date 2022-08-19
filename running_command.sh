@@ -1,3 +1,7 @@
+# Check connection with target machines is
+ansible-playbook target-check.yml -i hosts.yml -l
+ansible-playbook target-check.yml -i hosts.yml -l ProfittoTest
+
 # Prepare Linux server with needed packages & oracle user & create needed dirs
 ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags prep-os
 
