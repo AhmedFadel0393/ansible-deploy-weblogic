@@ -7,6 +7,7 @@
     - name: Here we are checking ansible_hostname
       debug:
         msg: "hostname is {{ ansible_hostname }}"
+
     - name: Here we are checking inventory_hostname
       debug:
         msg: "hostname is {{ inventory_hostname }}"
@@ -14,6 +15,7 @@
     - name: Here we are checking ansible_host
       debug:
         msg: "hostname is {{ ansible_host }}"
+        
     - name: Here we are checking inventory_host
       debug:
         msg: "hostname is {{ inventory_host }}"
