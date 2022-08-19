@@ -8,6 +8,6 @@
 - name: Here we are checking ansible connection and server credentials
   debug:
     msg:
-      - host IP ==> {{ ansible_host }}
-      - hostname ==> {{ ansible_hostname }}
-      - name in hosts ==> {{ inventory_hostname }}
+      - Host IP is {{ ansible_host }}
+      - Hostname is {{ ansible_hostname }}
+      - Name in hosts is {{ inventory_hostname }}
