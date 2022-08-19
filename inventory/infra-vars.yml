@@ -33,4 +33,4 @@ managed_server_1_port: '7010'
 
 
 # Server Hostname
-server_hostname: '{{ inventory_hostname }}'
+server_hostname: '{{ ansible_host }}'
