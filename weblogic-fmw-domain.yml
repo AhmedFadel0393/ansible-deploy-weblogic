@@ -1,18 +1,5 @@
 ---
 
-- name: Copy JDK & weblogic-fmw packages
-  vars_files:
-    # User defined variables for infrastructure
-    - infra-vars.yml
-    - wls-vars.yml
-    - secrets.yml
-    - new-input.yml
-  hosts: all
-  roles:
-    - role: linux-wls
-  tags:
-    - os
-
 - name: Prepare Linux server with needed packages
   vars_files:
     # User defined variables for infrastructure
@@ -25,6 +12,36 @@
     - role: linux-wls
   tags:
     - os
+
+- name: Copy JDK
+  vars_files:
+    # User defined variables for infrastructure
+    - infra-vars.yml
+    - wls-vars.yml
+    - secrets.yml
+    - new-input.yml
+  hosts: all
+  become: true
+  become_user: '{{ oracle_user }}'
+  roles:
+    - role: cp-jdk-package
+  tags:
+    - cp-jdk
+
+- name: Copy weblogic-fmw packages
+  vars_files:
+    # User defined variables for infrastructure
+    - infra-vars.yml
+    - wls-vars.yml
+    - secrets.yml
+    - new-input.yml
+  hosts: all
+  become: true
+  become_user: '{{ oracle_user }}'
+  roles:
+    - role: cp-fmw-package
+  tags:
+    - cp-fmw
 
 - name: Extract and Install Java
   vars_files:

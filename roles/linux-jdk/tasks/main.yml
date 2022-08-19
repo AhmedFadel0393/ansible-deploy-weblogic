@@ -5,12 +5,12 @@
 ################################################################################
 
 # ==> Install JDK
-- name: Copy jdk archive to host
-  copy: src={{ jdk_installation_archive }} dest=~/{{ jdk_installation_archive }}
-  args:
-    force: no
+#- name: Copy jdk archive to host
+#  copy: src={{ jdk_installation_archive }} dest=~/{{ jdk_installation_archive }}
+#  args:
+#    force: no
 - name: Extract JDK archive
-  command: 'tar -xf ~/{{ jdk_installation_archive }} -C {{ oracle_base }}'
+  command: 'tar -xf {{ mw_installer_folder }}/{{ jdk_installation_archive }} -C {{ oracle_base }}'
   args:
     creates: "{{ jdk_folder }}"
 - name: Change ownership of jdk folder
