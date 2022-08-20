@@ -2,9 +2,9 @@
 
 - name: Prepare Linux server with needed packages
   vars_files:
-    - inventory/infra-vars.yml
-    - inventory/wls-vars.yml
-    - inventory/secrets.yml
+    - infra-vars.yml
+    - wls-vars.yml
+    - secrets.yml
     - new-input.yml
   hosts: all
   roles:
