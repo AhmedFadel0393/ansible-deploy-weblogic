@@ -45,6 +45,7 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+    - new-input.yml    
   hosts: all
   become: true
   become_user: '{{ oracle_user }}'
@@ -58,6 +59,7 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+    - new-input.yml
   hosts: all
   become: true
   become_user: '{{ oracle_user }}'
@@ -71,6 +73,7 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+    - new-input.yml    
   hosts: all
   become: true
   become_user: '{{ oracle_user }}'
@@ -84,6 +87,7 @@
     - infra-vars.yml
     - wls-vars.yml
     - secrets.yml
+    - new-input.yml    
   hosts: all
   become: true
   become_user: '{{ oracle_user }}'
