@@ -6,10 +6,10 @@ Response File Version=1.0.0.0.0
 [GENERIC]
 
 #The oracle home location. This can be an existing Oracle Home or a new Oracle Home
-ORACLE_HOME={{ middleware_home }}
+#ORACLE_HOME={{ middleware_home }}
 
 #Set this variable value to the Installation Type selected. e.g. WebLogic Server, Coherence, Complete with Examples.
-INSTALL_TYPE=Fusion Middleware Infrastructure
+#INSTALL_TYPE=Fusion Middleware Infrastructure
 
 #Provide the My Oracle Support Username. If you wish to ignore Oracle Configuration Manager configuration provide empty string for user name.
 #MYORACLESUPPORT_USERNAME=
@@ -24,16 +24,16 @@ DECLINE_SECURITY_UPDATES=true
 SECURITY_UPDATES_VIA_MYORACLESUPPORT=false
 
 #Provide the Proxy Host
-PROXY_HOST={{ server_hostname }}
+#PROXY_HOST={{ server_hostname }}
 
 #Provide the Proxy Port
-PROXY_PORT={{ admin_server_port }}
+#PROXY_PORT={{ admin_server_port }}
 
 #Provide the Proxy Username
-PROXY_USER={{ weblogic_admin }}
+#PROXY_USER={{ weblogic_admin }}
 
 #Provide the Proxy Password
-PROXY_PWD={{ weblogic_admin_pass }}
+#PROXY_PWD={{ weblogic_admin_pass }}
 
 #Type String (URL format) Indicates the OCM Repeater URL which should be of the format [scheme[Http/Https]]://[repeater host]:[repeater port]
-COLLECTOR_SUPPORTHUB_URL=https://{{ server_hostname }}:{{ admin_server_port }}
+#COLLECTOR_SUPPORTHUB_URL=https://{{ server_hostname }}:{{ admin_server_port }}
