@@ -7,7 +7,7 @@ jdk_folder: '{{ oracle_base }}/jdk1.8.0_172'
 oracle_base: '/oracle/oracleBase'
 middleware_home: '{{ oracle_base }}/product/Oracle_Home'
 middleware_common_home: '{{ middleware_home }}/oracle_common'
-weblogic_home: '{{ middleware_home }}/wlserver'
+weblogic_home: '{{ oracle_base }}/wlserver'
 
 applications_home: '{{ oracle_base }}/config/applications'
 mw_installer_folder: '{{ oracle_base }}/installer'

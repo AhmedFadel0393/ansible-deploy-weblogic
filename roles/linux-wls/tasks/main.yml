@@ -87,7 +87,7 @@
     - 'export ORACLE_BASE=/oracle/oracleBase/'
     - 'export MW_HOME=$ORACLE_BASE/product/Oracle_Home'
     - 'export ORACLE_HOME=$MW_HOME'
-    - 'export WLS_HOME=$MW_HOME/wlserver'
+    - 'export WLS_HOME=$ORACLE_BASE/wlserver'
     - 'export WL_HOME=$WLS_HOME'
     - 'export DOMAINS_HOME=$ORACLE_BASE/config/Domains'
     - 'export DOMAIN_BASE=$DOMAINS_HOME'
