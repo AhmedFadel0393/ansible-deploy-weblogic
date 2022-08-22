@@ -31,7 +31,7 @@ ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest-7 --tags i
 ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest-7 --tags install-fmw
 
 # Create DB repo & Create Domain & Start Machine
-ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags fmw-domain
+ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest-7 --tags fmw-domain
 
 # Create managed servers
 ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags fmw-server

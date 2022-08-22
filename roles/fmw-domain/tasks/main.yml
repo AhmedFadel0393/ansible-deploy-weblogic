@@ -35,8 +35,8 @@
   #template: src={{ weblogic_home }}/server/lib/DemoIdentity.jks dest={{ nodemanager_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
   #template: src={{ weblogic_home }}/server/lib/DemoIdentity.jks dest={{ domain_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
   command: 
-    cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ domain_home }}/security/
-    cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/
+    - cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ domain_home }}/security/
+    - cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/
 
   
 - name: Copy Nodemanager Properties file
