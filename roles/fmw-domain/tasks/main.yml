@@ -32,12 +32,15 @@
   become_user: '{{ oracle_user }}'
   shell: "mkdir -p {{ nodemanager_home }}/security/"
 
+- name: Copy DemoIdentity key store to domain home
+  become: true
+  become_user: '{{ oracle_user }}'
+  command: "cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ domain_home }}/security/"
+
 - name: Copy DemoIdentity key store to nodemanager home
   become: true
   become_user: '{{ oracle_user }}'
-  command: 
-    - cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ domain_home }}/security/
-    - cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/
+  command: "cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/"
 
   #command: 'cp {{ domain_home }}/security/DemoIdentity.jks {{ nodemanager_home }}/security/DemoIdentity.jks'
   #command: 'cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/DemoIdentity.jks {{ domain_home }}/security/'
