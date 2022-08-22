@@ -76,22 +76,22 @@
   file: state=directory path={{ domain_home }} owner={{ oracle_user }} group={{ oracle_group }}
 
 
-- name: Export needed vars
+- name: Export needed vars to oracle user .bash_profile
   become: true
   become_user: '{{ oracle_user }}'
-  shell: |
-    export ORACLE_BASE=/oracle/oracleBase/
-    export MW_HOME=$ORACLE_BASE/product/Oracle_Home
-    export ORACLE_HOME=$MW_HOME
-
-    export WLS_HOME=$MW_HOME/wlserver
-    export WL_HOME=$WLS_HOME
-
-    export DOMAINS_HOME=$ORACLE_BASE/config/Domains
-    export DOMAIN_BASE=$DOMAINS_HOME
-    export DOMAIN_HOME=$DOMAIN_BASE/ValU_domain
-
-    export JAVA_HOME=$ORACLE_BASE/jdk1.8.0_172
-    export PATH=$JAVA_HOME/bin:$PATH
-
-    export DISPLAY=localhost:10.0
+  lineinfile:
+    dest: "/home/oracle/.bash_profile"
+    line: "{{ item }}"
+    state: present
+  with_items:
+    - 'export ORACLE_BASE=/oracle/oracleBase/'
+    - 'export MW_HOME=$ORACLE_BASE/product/Oracle_Home'
+    - 'export ORACLE_HOME=$MW_HOME'
+    - 'export WLS_HOME=$MW_HOME/wlserver'
+    - 'export WL_HOME=$WLS_HOME'
+    - 'export DOMAINS_HOME=$ORACLE_BASE/config/Domains'
+    - 'export DOMAIN_BASE=$DOMAINS_HOME'
+    - 'export DOMAIN_HOME=$DOMAIN_BASE/ValU_domain'
+    - 'export JAVA_HOME=$ORACLE_BASE/jdk1.8.0_172'
+    - 'export PATH=$JAVA_HOME/bin:$PATH'
+    - 'export DISPLAY=localhost:10.0'
