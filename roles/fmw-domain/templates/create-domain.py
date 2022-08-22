@@ -1,11 +1,3 @@
- {% comment %} db_server_name = '{{ dbserver_name }}' {% endcomment %}
-{% comment %} db_server_port = '{{ dbserver_port }}' {% endcomment %}
-{% comment %} db_service = '{{ dbserver_service }}' {% endcomment %}
-{% comment %} #data_source_url='jdbc:oracle:thin:@//' + db_server_name + ':' + db_server_port + '/' + db_service; {% endcomment %}
-{% comment %} #data_source_user_prefix= '{{ repository_prefix }}' {% endcomment %}
-{% comment %} #data_source_driver='oracle.jdbc.OracleDriver' {% endcomment %}
-{% comment %} #data_source_test='SQL SELECT 1 FROM DUAL'; {% endcomment %}
-
 domain_application_home = '{{ applications_home }}/{{ domain_name }}'
 domain_configuration_home = '{{ domains_home }}/{{ domain_name }}'
 domain_name = '{{ domain_name }}'
