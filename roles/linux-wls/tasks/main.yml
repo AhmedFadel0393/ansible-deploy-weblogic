@@ -6,15 +6,15 @@
 ################################################################################
 
 # ==> Configure Linux
-- name: Install required libraries
-  yum: name="{{ packages_list }}" state=present
-- name: Disable SELinux
-  selinux: state=disabled
-- name: Disable Firewall Deamon (firewalld)
-  service: name=firewalld state=stopped enabled=no
-- name: Change kernel parameters
-  sysctl: name="{{ item.key }}" value="{{ item.value }}" state=present
-  with_dict: "{{ kernel_params }}"
+#- name: Install required libraries
+#  yum: name="{{ packages_list }}" state=present
+#- name: Disable SELinux
+#  selinux: state=disabled
+#- name: Disable Firewall Deamon (firewalld)
+#  service: name=firewalld state=stopped enabled=no
+#- name: Change kernel parameters
+#  sysctl: name="{{ item.key }}" value="{{ item.value }}" state=present
+#  with_dict: "{{ kernel_params }}"
 
 # ==> Create user and groups
 - name: Create groups
@@ -68,19 +68,21 @@
 
 
 - name: Export needed vars
+  become: true
+  become_user: '{{ oracle_user }}'
   shell: |
     export ORACLE_BASE='{{ oracle_base }}'
     export MW_HOME='{{ middleware_home }}'
     export ORACLE_HOME=$MW_HOME
-    
+
     export WLS_HOME='{{ weblogic_home }}'
     export WL_HOME=$WLS_HOME
-    
+
     export DOMAINS_HOME='{{ domains_home }}'
     export DOMAIN_BASE=$DOMAINS_HOME
     export DOMAIN_HOME='{{ domain_home }}'
-    
+
     export JAVA_HOME='{{ jdk_folder }}'
     export PATH=$JAVA_HOME/bin:$PATH
-    
+
     export DISPLAY=localhost:10.0
