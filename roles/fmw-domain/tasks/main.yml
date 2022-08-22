@@ -35,14 +35,15 @@
 - name: Copy DemoIdentity key store to nodemanager home
   become: true
   become_user: '{{ oracle_user }}'
+  command: 
+    - cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ domain_home }}/security/
+    - cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/
+
   #command: 'cp {{ domain_home }}/security/DemoIdentity.jks {{ nodemanager_home }}/security/DemoIdentity.jks'
   #command: 'cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/DemoIdentity.jks {{ domain_home }}/security/'
   #command: 'for i in {{ nodemanager_home }}/security/ {{ domain_home }}/security/ ; do cp {{ weblogic_home }}/server/lib/DemoIdentity.jks $i; done'
   #template: src={{ weblogic_home }}/server/lib/DemoIdentity.jks dest={{ nodemanager_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
   #template: src={{ weblogic_home }}/server/lib/DemoIdentity.jks dest={{ domain_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
-  command: 
-    - cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ domain_home }}/security/
-    - cp {{ weblogic_home }}/server/lib/DemoIdentity.jks {{ nodemanager_home }}/security/
 
   
 - name: Copy Nodemanager Properties file
