@@ -19,13 +19,13 @@ ansible-playbook target-check.yml -i hosts.yml -l ProfittoTest
 ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags prep-os
 
 # Copy Java JDK
-ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest-7 --tags cp-jdk
-
-# Copy Weblogic fmw
-ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest-7 --tags cp-fmw
+ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags cp-jdk
 
 # Extract and Install Java
-ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest-7 --tags install-jdk
+ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags install-jdk
+
+# Copy Weblogic fmw
+ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags cp-fmw
 
 # Install Weblogic
 ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest-7 --tags install-fmw
