@@ -80,18 +80,18 @@
   become: true
   become_user: '{{ oracle_user }}'
   shell: |
-    export ORACLE_BASE='{{ oracle_base }}'
-    export MW_HOME='{{ middleware_home }}'
+    export ORACLE_BASE=/oracle/oracleBase/
+    export MW_HOME=$ORACLE_BASE/product/Oracle_Home
     export ORACLE_HOME=$MW_HOME
 
-    export WLS_HOME='{{ weblogic_home }}'
+    export WLS_HOME=$MW_HOME/wlserver
     export WL_HOME=$WLS_HOME
 
-    export DOMAINS_HOME='{{ domains_home }}'
+    export DOMAINS_HOME=$ORACLE_BASE/config/Domains
     export DOMAIN_BASE=$DOMAINS_HOME
-    export DOMAIN_HOME='{{ domain_home }}'
+    export DOMAIN_HOME=$DOMAIN_BASE/ValU_domain
 
-    export JAVA_HOME='{{ jdk_folder }}'
+    export JAVA_HOME=$ORACLE_BASE/jdk1.8.0_172
     export PATH=$JAVA_HOME/bin:$PATH
 
     export DISPLAY=localhost:10.0

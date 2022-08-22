@@ -16,7 +16,7 @@ ansible-playbook target-check.yml -i hosts.yml -l ProfittoTest
 # Running Playbook
 
 # Prepare Linux server with needed packages & oracle user & create needed dirs
-ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags prep-os    # 8 no success yun broken
+ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest --tags prep-os
 
 # Copy Java JDK
 ansible-playbook weblogic-fmw-domain.yml -i hosts.yml -l ProfittoTest-7 --tags cp-jdk
