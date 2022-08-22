@@ -24,8 +24,14 @@
   shell: "{{ weblogic_home }}/common/bin/wlst.sh {{ mw_installer_folder }}/create-domain.py"
     
 # ==> Start nodemanager
+#- name: Create security directoy to Nodemanager Home
+#  file: state=directory path={{ nodemanager_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
+
 - name: Create security directoy to Nodemanager Home
-  file: state=directory path={{ nodemanager_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
+  become: true
+  become_user: '{{ oracle_user }}'
+  shell: "mkdir -p {{ nodemanager_home }}/security/"
+
 - name: Copy DemoIdentity key store to nodemanager home
   become: true
   become_user: '{{ oracle_user }}'
