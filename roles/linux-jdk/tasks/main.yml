@@ -10,7 +10,7 @@
 #  args:
 #    force: no
 - name: Extract JDK archive
-  command: 'tar -xzf {{ mw_installer_folder }}/{{ jdk_installation_archive }} -C {{ jdk_folder }}'
+  command: 'tar -cxzf {{ mw_installer_folder }}/{{ jdk_installation_archive }} {{ jdk_folder }}'
   #args:
   #  creates: "{{ jdk_folder }}"
 
