@@ -1,7 +1,7 @@
 # Common paths
 
 #JAVA
-jdk_folder:     
+jdk_folder: '{{ oracle_base }}/jdk1.8.0_172'
 
 # Oracle
 oracle_base: '/oracle/oracleBase'
