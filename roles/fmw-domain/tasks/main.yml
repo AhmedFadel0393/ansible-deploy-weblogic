@@ -25,7 +25,7 @@
     
 # ==> Start nodemanager
 - name: Create security directoy to Nodemanager Home
-  file: state=directory path={{ nodemanager_home }}/security owner={{ oracle_user }} group={{ oracle_group }}
+  file: state=directory path={{ nodemanager_home }}/security/ owner={{ oracle_user }} group={{ oracle_group }}
 - name: Copy DemoIdentity key store to nodemanager home
   become: true
   become_user: '{{ oracle_user }}'
