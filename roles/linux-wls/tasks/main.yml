@@ -18,9 +18,18 @@
 
 # ==> Create user and groups
 - name: Create groups
-  group: name={{ oracle_group }} state=present
+  group: 
+    name: '{{ oracle_group }}'
+    state: present
+
 - name: Create user
-  user: name={{ oracle_user }} groups={{ oracle_group }} password={{ oracle_os_user_pass }}
+  user:
+    name: '{{ oracle_user }}'
+    password: '{{ oracle_os_user_pass }}'
+    groups: '{{ oracle_group }}'
+    state: present
+    
+#user: name={{ oracle_user }} groups={{ oracle_group }} password={{ oracle_os_user_pass }}
   
 # ==> Add open file and process limits for oracle user
 - name: Add soft limit number of open files
