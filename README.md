@@ -1,6 +1,6 @@
 Weblogic Ansible Playbook  12.1.3.0.0 [One Managed Servers]
 ======================================
-# ValU DevOps
+
 # Ahmed Fadel
 =====================================
 
@@ -49,17 +49,7 @@ Oracle Fusion Middleware software for hosting Oracle Fusion Middleware applicati
                                     #Target hosts group will be add lated as an input to the ansible-playbook command line
     ==> location: hosts         ==> create new target group under the one you will use and add to it these four lines without change.
 
-    Example:
-        # ProfittoTest
-        [ProfittoTest]
-        172.xx.xxx.x
-        172.xx.xxx.x
-        # ProfittoTest ssh user & sudo use
-        [ProfittoTest:vars]
-        ansible_user='{{ ssh_user }}'
-        ansible_become=yes
-        ansible_become_method=sudo 
-        ansible_become_pass='{{ user_sudo_pass }}'
+
 
 ============================================================================================================================================
 ## The playbook includes the following Ansible Roles:
@@ -89,12 +79,3 @@ ansible-playbook weblogic-fmw-domain.yml -i hosts -l {hostgroup} --tags {role-ta
 
 
 ============================================================================================================================================
-
-## Output should be
-01. Installed and ready to use Weblogic on machine localhost
-02. Weblogic username= weblogic
-03. Oracle user= oracle
-04. domain= ValU_domain
-05. nodemanager         ==> name= username= weblogic , port= 5556
-06. admin_server_name= AdminServer , port= 7001
-07. One managed servers     ==> managed_server_name= ValU_server , port= 7010
